@@ -16,6 +16,9 @@ class CreditCard < ApplicationRecord
       end
     end
     self.valid_number = double_nums.sum % 10 == 0 
-    
+  end
+
+  def self.valid_cards 
+    where(valid_number: true)
   end
 end
