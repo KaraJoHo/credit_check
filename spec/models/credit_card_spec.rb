@@ -3,7 +3,10 @@ require "rails_helper"
 RSpec.describe CreditCard do 
   before(:each) do 
     @cc = CreditCard.create!(number: 5541808923795240, limit: 15000)
+    @cc_2 = CreditCard.create!(number: 4024007136512380, limit: 15000)
+    @cc_3 = CreditCard.create!(number: 6011797668867828, limit: 15000)
     @cc_bad_num = CreditCard.create!(number: 6011797668868728, limit: 15000)
+    @cc_bad_num_2 = CreditCard.create!(number: 4024007106512380, limit: 15000)
   end
 
   describe "attributes" do 
@@ -25,6 +28,12 @@ RSpec.describe CreditCard do
       expect(@cc_bad_num.check_number).to eq(false)
       expect(@cc.valid_number).to eq(true)
       expect(@cc_bad_num.valid_number).to eq(false)
+    end
+  end
+
+  describe "valid_cards" do 
+    it "is a collection of valid cards" do 
+      expect(CreditCard.valid_cards).to eq([@cc, @cc_2, @cc_3])
     end
   end
 end
