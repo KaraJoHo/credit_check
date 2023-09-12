@@ -36,4 +36,10 @@ RSpec.describe CreditCard do
       expect(CreditCard.valid_cards).to eq([@cc, @cc_2, @cc_3])
     end
   end
+
+  describe "last_four_digits" do 
+    it "is the last 4 digits of the credit card" do 
+      expect(@cc.last_four_digits).to eq("5240")
+    end
+  end
 end
