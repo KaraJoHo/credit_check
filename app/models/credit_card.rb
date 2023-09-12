@@ -21,4 +21,8 @@ class CreditCard < ApplicationRecord
   def self.valid_cards 
     where(valid_number: true)
   end
+
+  def last_four_digits 
+    number.to_s[-4..-1]
+  end
 end
