@@ -18,7 +18,7 @@ RSpec.describe "Credit Card Show Page" do
       expect(page).to_not have_content("2380")
     end
 
-    xit "shows if the card is valid" do 
+    it "shows if the card is valid" do 
       visit "/credit_cards/#{@cc.id}"
 
       expect(page).to have_content("Valid")
