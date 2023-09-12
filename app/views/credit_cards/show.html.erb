@@ -1,0 +1,7 @@
+<%= @credit_card.last_four_digits %>
+
+<% if @credit_card.valid_number == true %>
+  <%= "Valid" %>
+<% else %>
+  <%= "Invalid" %>
+<% end %>
