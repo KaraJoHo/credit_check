@@ -1,6 +1,8 @@
 class CreditCardsController < ApplicationController 
   def show 
     @credit_card = CreditCard.find(params[:id])
-  end
 
+    #   flash[:error] = @credit_card.errors.full_messages.to_sentence
+  
+  end
 end
